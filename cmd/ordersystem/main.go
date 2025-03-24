@@ -57,7 +57,7 @@ func main() {
 	webserver.Router.Use(middleware.Logger)
 	webserver.Router.Post("/order", webOrderHandler.Create)
 	webserver.Router.Get("/order", webOrderHandler.FindAll)
-	fmt.Println("Starting web server on port", configs.WebServerPort)
+	fmt.Println("Starting web server on port", configs.WebServerPort[1:])
 	go webserver.Start()
 
 	grpcServer := grpc.NewServer()
@@ -84,7 +84,7 @@ func main() {
 }
 
 func getRabbitMQChannel() *amqp.Channel {
-	conn, err := amqp.Dial("amqp://guest:guest@localhost:5672/")
+	conn, err := amqp.Dial("amqp://guest:guest@rabbitmq:5672/")
 	if err != nil {
 		panic(err)
 	}
