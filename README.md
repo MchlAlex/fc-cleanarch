@@ -1,11 +1,5 @@
 # desafio-cleanarch
 
-```sh
-docker compose up
-```
-
-Use `api/create_order.http` para criar novas orderns
-
 ## desafio:
 
 Olá devs!
@@ -20,16 +14,15 @@ Esta listagem precisa ser feita com:
 Para a criação do banco de dados, utilize o Docker (Dockerfile / docker-compose.yaml), com isso ao rodar o comando docker compose up tudo deverá subir, preparando o banco de dados.
 Inclua um README.md com os passos a serem executados no desafio e a porta em que a aplicação deverá responder em cada serviço.
 
-## resultado:
+## Passos para execução
 
-### REST
+```sh
+docker compose up
+```
 
-![REST](rest.PNG)
+Web server na porta 8000
+gRPC server na porta 50051
+GraphQL server na porta 8080
 
-### GraphQL
-
-![GraphQL](graphql.PNG)
-
-### gRPC
-
-![gRPC](grpc.PNG)
+Use `api/create_order.http` para criar novas orders
+Use `api/list_orders.http` para listar as orders cadastradas
